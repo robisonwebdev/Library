@@ -22,3 +22,9 @@ function addBookToLibrary() {
 }
 
 addBookToLibrary.prototype = Object.create(Book.prototype);
+
+const submitBtn = document.querySelector('#submit');
+
+submitBtn.addEventListener('click', () => {
+    addBookToLibrary();
+})
