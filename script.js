@@ -5,3 +5,8 @@ let myLibrary = [];
 function Book() {
 
 }
+
+// Function that adds book to myLibrary Array
+function addBookToLibrary() {
+    
+}
