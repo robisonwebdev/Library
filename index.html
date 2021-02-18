@@ -13,7 +13,29 @@
     </div>
     <div id="container">
         <div id="bookListContainer"></div>
-        <div id="addBookContainer"></div>
+        <div id="addToLibrary">
+            <form action="#" id="libraryForm">
+                <div>
+                    <label for="authorForm">Author: </label><br>
+                    <input type="text" name="authorForm" id="authorForm"><br>
+                </div>
+                <div>
+                    <label for="title">Title: </label><br>
+                    <input type="text" name="titleForm" id="titleForm"><br>
+                </div>
+                <div>
+                    <label for="pagesForm">Number of pages: </label><br>
+                    <input type="number" name="pagesForm" id="pagesForm"><br>
+                </div>
+                <div>
+                    <input type="radio" name="read" id="haveRead" value="yes">
+                    <label for="haveRead">Have Read</label><br>
+
+                    <input type="radio" name="read" id="notRead" value="no">
+                    <label for="notRead">Not Read</label><br>
+                </div>
+            </form>
+        </div>
     </div>
     <div id="footer">
         <small>Created by <a href="#" target="_blank">David Robison</a></small>
