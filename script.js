@@ -4,28 +4,28 @@ let myLibrary = [
         author: 'David Robison',
         title: 'Wind Hunter',
         pages: '523',
-        read: 'yes'
+        status: 'yes'
     },
     {
         author: 'Patrick Rothfuss',
         title: 'The Name of the Wind',
         pages: '662',
-        read: 'yes'
+        status: 'yes'
     },
     {
         author: 'Robert Jordan',
         title: 'The Great Hunt',
         pages: '706',
-        read: 'no'
+        status: 'no'
     },
 ];
 
 // Book Constructor
-function Book(author, title, pages, read) {
+function Book(author, title, pages, status) {
     this.author = author;
     this.title = title;
     this.pages = pages;
-    this.read = read;
+    this.status = status;
 }
 
 // Function that adds book to myLibrary Array
@@ -33,9 +33,9 @@ function addBookToLibrary() {
     const author = document.querySelector('#authorForm').value;
     const title = document.querySelector('#titleForm').value;
     const pages = document.querySelector('#pagesForm').value;
-    const read = document.querySelector(`input[name='read']:checked`).value;
+    const status = document.querySelector(`input[name='status']:checked`).value;
 
-    const newBook = new Book(author, title, pages, read);
+    const newBook = new Book(author, title, pages, status);
 
     myLibrary.push(newBook);
 }
