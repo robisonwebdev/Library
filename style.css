@@ -11,3 +11,23 @@ body {
 
     height: 100vh;
 }
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    height: 100%;
+}
+
+#header {
+    margin: 30px auto;
+}
+
+#libraryTitle {
+    font-size: 3rem;
+}
+
+#addToLibrary {
+    display: none;
+}
