@@ -4,19 +4,19 @@ let myLibrary = [
         author: 'David Robison',
         title: 'Wind Hunter',
         pages: '523',
-        status: 'yes'
+        status: 'Read'
     },
     {
         author: 'Patrick Rothfuss',
         title: 'The Name of the Wind',
         pages: '662',
-        status: 'yes'
+        status: 'Reading'
     },
     {
         author: 'Robert Jordan',
         title: 'The Great Hunt',
         pages: '706',
-        status: 'no'
+        status: 'Not Read'
     },
 ];
 
@@ -79,3 +79,5 @@ const submitBtn = document.querySelector('#submit');
 submitBtn.addEventListener('click', () => {
     addBookToLibrary();
 })
+
+displayBookList();
