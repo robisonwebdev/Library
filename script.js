@@ -33,7 +33,7 @@ function addBookToLibrary() {
     const author = document.querySelector('#authorForm').value;
     const title = document.querySelector('#titleForm').value;
     const pages = document.querySelector('#pagesForm').value;
-    const status = document.querySelector(`input[name='status']:checked`).value;
+    const status = document.querySelector('#status').value;
 
     const newBook = new Book(author, title, pages, status);
 
