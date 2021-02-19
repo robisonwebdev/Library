@@ -40,11 +40,13 @@
                     <input type="number" name="pagesForm" id="pagesForm"><br>
                 </div>
                 <div>
-                    <input type="radio" name="status" id="haveRead" value="yes">
-                    <label for="haveRead">Have Read</label><br>
+                    <label for="status">Status</label>
 
-                    <input type="radio" name="status" id="notRead" value="no">
-                    <label for="notRead">Not Read</label><br>
+                    <select name="status" id="status">
+                        <option value="read">Read</option>
+                        <option value="reading">Currently Reading</option>
+                        <option value="notRead">Not Read</option>
+                    </select>
                 </div>
                 <div>
                     <button id="submit" type="button">Submit</button>
