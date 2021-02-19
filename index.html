@@ -12,7 +12,19 @@
         <div id="libraryTitle">Library</div>
     </div>
     <div id="container">
-        <div id="bookListContainer"></div>
+        <div id="bookListContainer">
+            <table id="bookListTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
         <div id="addToLibrary">
             <form action="#" id="libraryForm">
                 <div>
@@ -28,10 +40,10 @@
                     <input type="number" name="pagesForm" id="pagesForm"><br>
                 </div>
                 <div>
-                    <input type="radio" name="read" id="haveRead" value="yes">
+                    <input type="radio" name="status" id="haveRead" value="yes">
                     <label for="haveRead">Have Read</label><br>
 
-                    <input type="radio" name="read" id="notRead" value="no">
+                    <input type="radio" name="status" id="notRead" value="no">
                     <label for="notRead">Not Read</label><br>
                 </div>
                 <div>
