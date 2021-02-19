@@ -43,6 +43,8 @@ function addBookToLibrary() {
 addBookToLibrary.prototype = Object.create(Book.prototype);
 
 function displayBookList() {
+    deleteBookList();
+
     myLibrary.forEach((book) => {
         const bookListTBody = document.querySelector('tbody');
         const bookListTR = document.createElement('tr');
@@ -55,7 +57,7 @@ function displayBookList() {
         titleTD.innerText = book.title;
         authorTD.innerText = book.author;
         pagesTD.innerText = book.pages;
-        statusTD.innerText = book.read;
+        statusTD.innerText = book.status;
 
         bookListTR.appendChild(titleTD);
         bookListTR.appendChild(authorTD);
@@ -63,6 +65,12 @@ function displayBookList() {
         bookListTR.appendChild(statusTD);
         bookListTBody.appendChild(bookListTR);
     })
+}
+
+function deleteBookList() {
+    const bookListTBody = document.querySelector('tbody');
+
+    bookListTBody.innerHTML = '';
 }
 
 // Eventlisteners 
