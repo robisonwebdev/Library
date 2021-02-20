@@ -73,8 +73,23 @@ function deleteBookList() {
     bookListTBody.innerHTML = '';
 }
 
+function bookInputToggle() {
+    const addToLibrary = document.querySelector('#addToLibrary');
+
+    if (addToLibrary.style.display === 'none') {
+        addToLibrary.style.display = 'flex';
+    } else {
+        addToLibrary.style.display = 'none';
+    }
+}
+
 // Eventlisteners 
+const openBookInputBtn = document.querySelector('#openBookInputBtn');
 const submitBtn = document.querySelector('#submit');
+
+openBookInputBtn.addEventListener('click', () => {
+
+})
 
 submitBtn.addEventListener('click', () => {
     addBookToLibrary();
