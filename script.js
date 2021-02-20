@@ -83,6 +83,18 @@ function bookInputToggle() {
     }
 }
 
+function deleteBookInputValues() {
+    const authorForm = document.querySelector('#authorForm');
+    const titleForm = document.querySelector('#titleForm');
+    const pagesForm = document.querySelector('#pagesForm');
+    const status = document.querySelector('#status');
+
+    authorForm.value = '';
+    titleForm.value = '';
+    pagesForm.value = '';
+    status.selectedIndex = 0;
+}
+
 // Eventlisteners 
 const openBookInputBtn = document.querySelector('#openBookInputBtn');
 const submitBtn = document.querySelector('#submit');
