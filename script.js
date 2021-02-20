@@ -74,7 +74,7 @@ function deleteBookList() {
 }
 
 function bookInputToggle() {
-    const addToLibrary = document.querySelector('#addToLibrary');
+    const addToLibrary = document.querySelector('#bookInput');
 
     if (addToLibrary.style.display === 'none') {
         addToLibrary.style.display = 'flex';
@@ -88,11 +88,13 @@ const openBookInputBtn = document.querySelector('#openBookInputBtn');
 const submitBtn = document.querySelector('#submit');
 
 openBookInputBtn.addEventListener('click', () => {
-
+    bookInputToggle();
 })
 
 submitBtn.addEventListener('click', () => {
     addBookToLibrary();
+    bookInputToggle();
+    displayBookList();
 })
 
 displayBookList();
