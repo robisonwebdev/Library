@@ -106,6 +106,7 @@ openBookInputBtn.addEventListener('click', () => {
 submitBtn.addEventListener('click', () => {
     addBookToLibrary();
     bookInputToggle();
+    deleteBookInputValues();
     displayBookList();
 })
 
