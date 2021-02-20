@@ -98,6 +98,7 @@ function deleteBookInputValues() {
 // Eventlisteners 
 const openBookInputBtn = document.querySelector('#openBookInputBtn');
 const submitBtn = document.querySelector('#submit');
+const cancelBtn = document.querySelector('#cancel');
 
 openBookInputBtn.addEventListener('click', () => {
     bookInputToggle();
@@ -108,6 +109,11 @@ submitBtn.addEventListener('click', () => {
     bookInputToggle();
     deleteBookInputValues();
     displayBookList();
+})
+
+cancelBtn.addEventListener('click', () => {
+    bookInputToggle();
+    deleteBookInputValues();
 })
 
 displayBookList();
