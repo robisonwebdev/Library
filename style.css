@@ -10,6 +10,7 @@ body {
     justify-content: space-between;
 
     height: 100vh;
+    width: 100vw;
 }
 
 #container {
@@ -17,7 +18,9 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 35px;
+
     height: 100%;
+    width: 100%;
 }
 
 #header {
@@ -27,3 +30,12 @@ body {
 #libraryTitle {
     font-size: 3rem;
 }
+
+#bookListContainer {
+    width: 760px;
+}
+
+#bookListTable {
+    width: 100%;
+}
+
