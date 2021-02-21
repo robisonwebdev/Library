@@ -57,7 +57,9 @@ function displayBookList() {
         titleTD.innerText = book.title;
         authorTD.innerText = book.author;
         pagesTD.innerText = book.pages;
+        pagesTD.classList.add('centerAlign');
         statusTD.innerText = book.status;
+        statusTD.classList.add('centerAlign');
 
         bookListTR.appendChild(titleTD);
         bookListTR.appendChild(authorTD);
