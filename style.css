@@ -36,9 +36,11 @@ body {
 }
 
 #bookListTable {
+    border-spacing: 0;
     width: 100%;
 }
 
 th {
     text-align: left;
 }
+
