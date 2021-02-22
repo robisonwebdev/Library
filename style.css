@@ -124,12 +124,16 @@ td{
 .libraryFormBtns {
     background-color: var(--grey);
     border: 1px solid black;
+    border-radius: 3px;
     color: var(--white);
+    margin: 0 5px;
     padding: 10px 20px;
+
     height: auto;
     width: auto;
 }
 
 .libraryFormBtns:hover {
     background-color: var(--greyDark);
+    text-decoration: underline;
 }
