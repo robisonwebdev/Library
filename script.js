@@ -77,11 +77,14 @@ function deleteBookList() {
 
 function bookInputToggle() {
     const addToLibrary = document.querySelector('#bookInput');
+    const openBookInputBtn = document.querySelector('#openBookInputBtn');
 
     if (addToLibrary.style.display === 'none') {
         addToLibrary.style.display = 'flex';
+        openBookInputBtn.classList.add('removeDisplay');
     } else {
         addToLibrary.style.display = 'none';
+        openBookInputBtn.classList.remove('removeDisplay');
     }
 }
 
