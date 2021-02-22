@@ -25,38 +25,39 @@
                 <tbody></tbody>
             </table>
         </div>
-        <div id="bookInput" style="display: none;">
-            <form action="#" id="libraryForm">
-                <div>
-                    <label for="authorForm">Author: </label><br>
-                    <input type="text" name="authorForm" id="authorForm"><br>
-                </div>
-                <div>
-                    <label for="title">Title: </label><br>
-                    <input type="text" name="titleForm" id="titleForm"><br>
-                </div>
-                <div>
-                    <label for="pagesForm">Number of pages: </label><br>
-                    <input type="number" name="pagesForm" id="pagesForm"><br>
-                </div>
-                <div>
-                    <label for="status">Status</label>
-
-                    <select name="status" id="status">
-                        <option value="" selected disabled hidden>None</option>
-                        <option value="Read">Read</option>
-                        <option value="Reading">Currently Reading</option>
-                        <option value="Not Read">Not Read</option>
-                    </select>
-                </div>
-                <div>
-                    <button id="submit" type="button">Submit</button>
-                    <button id="cancel" type="button">Cancel</button>
-                </div>
-            </form>
-        </div>
         <div id="addBook">
             <button id="openBookInputBtn" type="button">Add Book</button>
+            
+            <div id="bookInput" style="display: none;">
+                <form action="#" id="libraryForm">
+                    <div>
+                        <label for="authorForm">Author: </label><br>
+                        <input type="text" name="authorForm" id="authorForm"><br>
+                    </div>
+                    <div>
+                        <label for="title">Title: </label><br>
+                        <input type="text" name="titleForm" id="titleForm"><br>
+                    </div>
+                    <div>
+                        <label for="pagesForm">Number of pages: </label><br>
+                        <input type="number" name="pagesForm" id="pagesForm"><br>
+                    </div>
+                    <div>
+                        <label for="status">Status</label>
+    
+                        <select name="status" id="status">
+                            <option value="" selected disabled hidden>None</option>
+                            <option value="Read">Read</option>
+                            <option value="Reading">Currently Reading</option>
+                            <option value="Not Read">Not Read</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button id="submit" type="button">Submit</button>
+                        <button id="cancel" type="button">Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <div id="footer">
