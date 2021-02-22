@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.removeDisplay {
+    display: none;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -68,6 +72,13 @@ td{
     margin-right: 15px;    
 }
 
-.removeDisplay {
-    display: none;
+#bookInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid black;
+    height: 350px;
+    width: 300px;
 }
