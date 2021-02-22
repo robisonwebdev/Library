@@ -67,3 +67,7 @@ td{
 #openBookInputBtn {
     margin-right: 15px;    
 }
+
+.removeDisplay {
+    display: none;
+}
