@@ -66,6 +66,10 @@ td{
     padding: 20px 0;
 }
 
+.las {
+    font-size: 22px;
+}
+
 #addBook {
     display: flex;
     justify-content: flex-end;
