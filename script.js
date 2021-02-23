@@ -52,6 +52,8 @@ function displayBookList() {
         const authorTD = document.createElement('td');
         const pagesTD = document.createElement('td');
         const statusTD = document.createElement('td');
+        const editTD = document.createElement('td');
+        const editBtn = document.createElement('i');
 
         bookListTR;
         titleTD.innerText = book.title;
@@ -60,11 +62,15 @@ function displayBookList() {
         pagesTD.classList.add('centerAlign');
         statusTD.innerText = book.status;
         statusTD.classList.add('centerAlign');
+        editTD.classList.add('centerAlign');
+        editBtn.setAttribute('class', 'las la-edit');
 
+        editTD.appendChild(editBtn);
         bookListTR.appendChild(titleTD);
         bookListTR.appendChild(authorTD);
         bookListTR.appendChild(pagesTD);
         bookListTR.appendChild(statusTD);
+        bookListTR.appendChild(editTD);
         bookListTBody.appendChild(bookListTR);
     })
 }
