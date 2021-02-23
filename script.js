@@ -4,28 +4,32 @@ let myLibrary = [
         author: 'David Robison',
         title: 'Wind Hunter',
         pages: '523',
-        status: 'Read'
+        status: 'Read',
+        dataKey: 'DavidRobison_523',
     },
     {
         author: 'Patrick Rothfuss',
         title: 'The Name of the Wind',
         pages: '662',
-        status: 'Reading'
+        status: 'Reading',
+        dataKey: 'PatrickRothfuss_662',
     },
     {
         author: 'Robert Jordan',
         title: 'The Great Hunt',
         pages: '706',
-        status: 'Not Read'
+        status: 'Not Read',
+        dataKey: 'RobertJordan_706',
     },
 ];
 
 // Book Constructor
-function Book(author, title, pages, status) {
+function Book(author, title, pages, status, dataKey) {
     this.author = author;
     this.title = title;
     this.pages = pages;
     this.status = status;
+    this.dataKey = dataKey;
 }
 
 // Function that adds book to myLibrary Array
@@ -34,8 +38,9 @@ function addBookToLibrary() {
     const title = document.querySelector('#titleForm').value;
     const pages = document.querySelector('#pagesForm').value;
     const status = document.querySelector('#status').value;
+    const dataKey = `${author.replace(/ /g, '')}_${pages}`;
 
-    const newBook = new Book(author, title, pages, status);
+    const newBook = new Book(author, title, pages, status, dataKey);
 
     myLibrary.push(newBook);
 }
@@ -56,6 +61,7 @@ function displayBookList() {
         const editBtn = document.createElement('i');
 
         bookListTR;
+        bookListTR.setAttribute('data-key', book.dataKey);
         titleTD.innerText = book.title;
         authorTD.innerText = book.author;
         pagesTD.innerText = book.pages;
