@@ -61,7 +61,6 @@ function displayBookList() {
         const editBtn = document.createElement('i');
 
         bookListTR;
-        bookListTR.setAttribute('data-key', book.dataKey);
         titleTD.innerText = book.title;
         authorTD.innerText = book.author;
         pagesTD.innerText = book.pages;
@@ -70,6 +69,7 @@ function displayBookList() {
         statusTD.classList.add('centerAlign');
         editTD.classList.add('centerAlign');
         editBtn.setAttribute('class', 'las la-edit');
+        editBtn.setAttribute('data-key', book.dataKey);
 
         editTD.appendChild(editBtn);
         bookListTR.appendChild(titleTD);
@@ -112,10 +112,26 @@ function deleteBookInputValues() {
     status.selectedIndex = 0;
 }
 
+function findObjectInArray(key, array) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].dataKey == key) {
+            return i;
+        }
+    }
+}
+
+function deleteObjectInArray(array, start, end) {
+    array.splice(start, end);
+}
+
+displayBookList();
+
+
 // Eventlisteners 
 const openBookInputBtn = document.querySelector('#openBookInputBtn');
 const submitBtn = document.querySelector('#submit');
 const cancelBtn = document.querySelector('#cancel');
+const editBtns = document.querySelectorAll('.las');
 
 openBookInputBtn.addEventListener('click', () => {
     bookInputToggle();
@@ -133,4 +149,11 @@ cancelBtn.addEventListener('click', () => {
     deleteBookInputValues();
 })
 
-displayBookList();
+editBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        deleteObjectInArray(myLibrary, findObjectInArray(e.target.dataset.key, myLibrary), 1);  // For Test, remove later
+
+        console.log(myLibrary);
+    })
+})
+
