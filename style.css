@@ -80,6 +80,7 @@ td{
 .statusBtns:hover {
     background-color: var(--grey);
     color: var(--white);
+    font-weight: 500;
     text-decoration: underline;
 }
 
