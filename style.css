@@ -77,6 +77,12 @@ td{
     width: 80px;
 }
 
+.statusBtns:hover {
+    background-color: var(--grey);
+    color: var(--white);
+    text-decoration: underline;
+}
+
 #addBook {
     display: flex;
     justify-content: flex-end;
