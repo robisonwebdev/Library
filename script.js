@@ -60,6 +60,42 @@ function bookInputToggle() {
     }
 }
 
+function deleteIconEventListener() {
+    const deleteIcon = document.querySelectorAll('.la-trash');
+
+    deleteIcon.forEach((icon) => {
+        icon.addEventListener('click', (e) => {
+            deleteObjectInArray(myLibrary, findObjectInArray(e.target.dataset.key, myLibrary), 1);
+        })
+    })
+}
+
+function deleteBookInputValues() {
+    const authorForm = document.querySelector('#authorForm');
+    const titleForm = document.querySelector('#titleForm');
+    const pagesForm = document.querySelector('#pagesForm');
+    const status = document.querySelector('#status');
+
+    authorForm.value = '';
+    titleForm.value = '';
+    pagesForm.value = '';
+    status.selectedIndex = 0;
+}
+
+function deleteBookList() {
+    const bookListTBody = document.querySelector('tbody');
+
+    bookListTBody.innerHTML = '';
+}
+
+function deleteObjectInArray(array, start, end) {
+    array.splice(start, end);
+
+    displayBookList();
+    statusBtnsEventListener();
+    deleteIconEventListener();
+}
+
 function displayBookList() {
     deleteBookList();
 
@@ -99,28 +135,6 @@ function displayBookList() {
     })
 }
 
-function deleteBookInputValues() {
-    const authorForm = document.querySelector('#authorForm');
-    const titleForm = document.querySelector('#titleForm');
-    const pagesForm = document.querySelector('#pagesForm');
-    const status = document.querySelector('#status');
-
-    authorForm.value = '';
-    titleForm.value = '';
-    pagesForm.value = '';
-    status.selectedIndex = 0;
-}
-
-function deleteBookList() {
-    const bookListTBody = document.querySelector('tbody');
-
-    bookListTBody.innerHTML = '';
-}
-
-function deleteObjectInArray(array, start, end) {
-    array.splice(start, end);
-}
-
 function findObjectInArray(key, array) {
     for (let i = 0; i < array.length; i++) {
         if (array[i].dataKey == key) {
@@ -150,10 +164,12 @@ function statusChange(btn, key) {
 
     displayBookList();
     statusBtnsEventListener();
+    deleteIconEventListener();
 }
 
 displayBookList();
 statusBtnsEventListener();
+deleteIconEventListener();
 
 
 // Eventlisteners 
@@ -178,37 +194,3 @@ cancelBtn.addEventListener('click', () => {
     bookInputToggle();
     deleteBookInputValues();
 })
-
-
-
-
-
-
-// OLD CODE
-
-// function editBtnsEventListeners() {
-//     const editBtns = document.querySelectorAll('.las');
-
-//     editBtns.forEach((btn) => {
-//         btn.addEventListener('click', (e) => {
-//             // deleteObjectInArray(myLibrary, findObjectInArray(e.target.dataset.key, myLibrary), 1);  // For Test, remove later
-//             bookInputToggle();
-//             editBook(myLibrary, findObjectInArray(e.target.dataset.key, myLibrary));
-//         })
-//     })
-// }
-
-// function editBook(array, position) {
-//     const header = document.querySelector('#formHeader');
-//     const author = document.querySelector('#authorForm');
-//     const title = document.querySelector('#titleForm');
-//     const pages = document.querySelector('#pagesForm');
-//     const status = document.querySelector('#status');
-
-//     header.innerText = 'Edit Book';
-
-//     author.value = array[position].author;
-//     title.value = array[position].title;
-//     pages.value = array[position].pages;
-//     status.value = array[position].status;
-// }
