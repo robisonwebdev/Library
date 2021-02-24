@@ -70,6 +70,13 @@ td{
     font-size: 22px;
 }
 
+.statusBtn {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 35px;
+    width: 80px;
+}
+
 #addBook {
     display: flex;
     justify-content: flex-end;
@@ -118,10 +125,6 @@ td{
     display: flex;
     flex-direction: column;
     gap: 8px;
-}
-
-.libraryFormInputs input{
-    /* background-color: var(--grey); */
 }
 
 #formStatus {
