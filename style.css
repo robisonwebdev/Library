@@ -43,7 +43,7 @@ body {
 }
 
 #bookListContainer {
-    width: 760px;
+    width: 760px;    
 }
 
 #bookListTable {
@@ -157,4 +157,11 @@ td{
 .libraryFormBtns:hover {
     background-color: var(--greyDark);
     text-decoration: underline;
+}
+
+
+@media only screen and (max-width: 800px) {
+    #bookListContainer {
+        width: 95vw;
+    }
 }
