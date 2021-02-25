@@ -91,6 +91,7 @@ function deleteBookList() {
 function deleteObjectInArray(array, start, end) {
     array.splice(start, end);
 
+    updateLocalStorage();
     displayBookList();
     statusBtnsEventListener();
     deleteIconEventListener();
@@ -162,11 +163,25 @@ function statusChange(btn, key) {
         myLibrary[findObjectInArray(key, myLibrary)].status = 'Reading';
     }
 
+    updateLocalStorage();
     displayBookList();
     statusBtnsEventListener();
     deleteIconEventListener();
 }
 
+function checkForLocalStorage() {
+    if (!localStorage.getItem('myLibraryStored')) {
+        localStorage.setItem('myLibraryStored', JSON.stringify(myLibrary));
+    } else {
+        myLibrary = JSON.parse(localStorage.getItem('myLibraryStored'));
+    }
+}
+
+function updateLocalStorage() {
+    localStorage.setItem('myLibraryStored', JSON.stringify(myLibrary));
+}
+
+checkForLocalStorage();
 displayBookList();
 statusBtnsEventListener();
 deleteIconEventListener();
@@ -184,6 +199,7 @@ openBookInputBtn.addEventListener('click', () => {
 
 submitBtn.addEventListener('click', () => {
     addBookToLibrary();
+    updateLocalStorage();
     bookInputToggle();
     deleteBookInputValues();
     displayBookList();
