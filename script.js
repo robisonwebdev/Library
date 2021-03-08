@@ -1,7 +1,7 @@
 // Array to store book objects
 let myLibrary = [
     {
-        author: 'David Robison',
+        author: 'David Patrick',
         title: 'Wind Hunter',
         pages: '523',
         status: 'Read',
@@ -22,6 +22,10 @@ let myLibrary = [
         dataKey: 'RobertJordan_706',
     },
 ];
+
+const books = (function() {
+    
+})();
 
 // Book Constructor
 function Book(author, title, pages, status, dataKey) {
