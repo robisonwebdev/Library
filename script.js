@@ -204,7 +204,7 @@ openBookInputBtn.addEventListener('click', () => {
 })
 
 submitBtn.addEventListener('click', () => {
-    addBookToLibrary();
+    myBooks.addToLibrary();
     updateLocalStorage();
     bookInputToggle();
     deleteBookInputValues();
