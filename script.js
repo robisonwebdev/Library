@@ -23,6 +23,20 @@ const books = (function() {
             dataKey: 'RobertJordan_706',
         },
     ];
+
+    class myBooks {
+        constructor(author, title, pages, status, dataKey) {
+            this.author = author;
+            this.title = title;
+            this.pages = pages;
+            this.status = status;
+            this.dataKey = dataKey;
+        }
+    }
+
+    return {
+        myLibrary: myLibrary,
+    }
 })();
 
 // Book Constructor
