@@ -210,6 +210,7 @@ submitBtn.addEventListener('click', () => {
     deleteBookInputValues();
     displayBookList();
     statusBtnsEventListener();
+    deleteIconEventListener();
 })
 
 cancelBtn.addEventListener('click', () => {
