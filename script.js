@@ -1,4 +1,4 @@
-const books = (function() {
+const myBooks = (function() {
     // Array to store book objects
     let myLibrary = [
         {
@@ -24,7 +24,7 @@ const books = (function() {
         },
     ];
 
-    class myBooks {
+    class book {
         constructor(author, title, pages, status, dataKey) {
             this.author = author;
             this.title = title;
@@ -34,34 +34,24 @@ const books = (function() {
         }
     }
 
+    function addToLibrary() {
+        const author = document.querySelector('#authorForm').value;
+        const title = document.querySelector('#titleForm').value;
+        const pages = document.querySelector('#pagesForm').value;
+        const status = document.querySelector('#status').value;
+        const dataKey = `${author.replace(/ /g, '')}_${pages}`;
+
+        const newBook = new book(author, title, pages, status, dataKey);
+
+        myLibrary.push(newBook);
+
+    }
+
     return {
         myLibrary: myLibrary,
+        addToLibrary: addToLibrary,
     }
 })();
-
-// Book Constructor
-function Book(author, title, pages, status, dataKey) {
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.status = status;
-    this.dataKey = dataKey;
-}
-
-// Function that adds book to myLibrary Array
-function addBookToLibrary() {
-    const author = document.querySelector('#authorForm').value;
-    const title = document.querySelector('#titleForm').value;
-    const pages = document.querySelector('#pagesForm').value;
-    const status = document.querySelector('#status').value;
-    const dataKey = `${author.replace(/ /g, '')}_${pages}`;
-
-    const newBook = new Book(author, title, pages, status, dataKey);
-
-    myLibrary.push(newBook);
-}
-
-addBookToLibrary.prototype = Object.create(Book.prototype);
 
 function bookInputToggle() {
     const addToLibrary = document.querySelector('#bookInput');
