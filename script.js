@@ -83,6 +83,15 @@ const libraryDisplay = (function() {
         }
     }
 
+    function changeBookStatus(btn, key) {
+        myBooks.changeStatus(btn, key);
+    
+        // updateLocalStorage();
+        displayBookList();
+        statusBtnsEventListener();
+        deleteIconEventListener();
+    }
+
     function deleteIconEventListener() {
         const deleteIcon = document.querySelectorAll('.la-trash');
     
@@ -158,15 +167,6 @@ const libraryDisplay = (function() {
                 changeBookStatus(btn, e.target.dataset.key);
             })
         })
-    }
-
-    function changeBookStatus(btn, key) {
-        myBooks.changeStatus(btn, key);
-    
-        // updateLocalStorage();
-        displayBookList();
-        statusBtnsEventListener();
-        deleteIconEventListener();
     }
 
     const openBookInputBtn = document.querySelector('#openBookInputBtn');
