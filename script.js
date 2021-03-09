@@ -102,7 +102,6 @@ const libraryDisplay = (function() {
     }
 
     function deleteBook(e) {
-        console.log(e.target.dataset.key);
         myBooks.delete(e.target.dataset.key, 1);
     
         // updateLocalStorage();
