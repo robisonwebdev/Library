@@ -53,11 +53,19 @@ const myBooks = (function() {
 
     function changeBookStatus(btn, key) {
         if (btn.textContent == 'Read') {
-            myLibrary[findObjectInArray(key, myLibrary)].status = 'Not Read'; 
+            myLibrary[locateBook(key, myLibrary)].status = 'Not Read'; 
         } else if (btn.textContent == 'Reading') {
-            myLibrary[findObjectInArray(key, myLibrary)].status = 'Read';
+            myLibrary[locateBook(key, myLibrary)].status = 'Read';
         } else if (btn.textContent == 'Not Read') {
-            myLibrary[findObjectInArray(key, myLibrary)].status = 'Reading';
+            myLibrary[locateBook(key, myLibrary)].status = 'Reading';
+        }
+    }
+
+    function locateBook(key) {
+        for (let i = 0; i < myLibrary.length; i++) {
+            if (myLibrary[i].dataKey == key) {
+                return i;
+            }
         }
     }
 
@@ -66,6 +74,7 @@ const myBooks = (function() {
         add: addToLibrary,
         delete: deleteFromLibrary,
         changeStatus: changeBookStatus,
+        locate: locateBook,
     }
 })();
 
@@ -93,7 +102,7 @@ const libraryDisplay = (function() {
     }
 
     function deleteBook(e) {
-        myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
+        myBooks.delete(myBooks.locate(e.target.dataset.key, myBooks.myLibrary), 1);
     
         // updateLocalStorage();
         displayBookList();
@@ -166,14 +175,6 @@ const libraryDisplay = (function() {
             bookListTR.appendChild(deleteTD);
             bookListTBody.appendChild(bookListTR);
         })
-    }
-
-    function findObjectInArray(key, array) {
-        for (let i = 0; i < array.length; i++) {
-            if (array[i].dataKey == key) {
-                return i;
-            }
-        }
     }
 
     function statusBtnsEventListener() {
