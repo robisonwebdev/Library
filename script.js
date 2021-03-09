@@ -72,6 +72,18 @@ const libraryDisplay = (function() {
         }
     }
 
+    function deleteInputValues() {
+        const authorForm = document.querySelector('#authorForm');
+        const titleForm = document.querySelector('#titleForm');
+        const pagesForm = document.querySelector('#pagesForm');
+        const status = document.querySelector('#status');
+    
+        authorForm.value = '';
+        titleForm.value = '';
+        pagesForm.value = '';
+        status.selectedIndex = 0;
+    }
+
     const openBookInputBtn = document.querySelector('#openBookInputBtn');
     const submitBtn = document.querySelector('#submit');
 
@@ -83,7 +95,7 @@ const libraryDisplay = (function() {
         myBooks.add();
         // updateLocalStorage();
         addBookToggle();
-        deleteBookInputValues();
+        deleteInputValues();
         displayBookList();
         statusBtnsEventListener();
         deleteIconEventListener();
