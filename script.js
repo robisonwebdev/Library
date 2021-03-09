@@ -89,6 +89,16 @@ const libraryDisplay = (function() {
         bookListTBody.innerHTML = '';
     }
 
+    function deleteIconEventListener() {
+        const deleteIcon = document.querySelectorAll('.la-trash');
+    
+        deleteIcon.forEach((icon) => {
+            icon.addEventListener('click', (e) => {
+                deleteBook(e);
+            })
+        })
+    }
+
     function deleteInputValues() {
         const authorForm = document.querySelector('#authorForm');
         const titleForm = document.querySelector('#titleForm');
@@ -198,30 +208,30 @@ const libraryDisplay = (function() {
 
 
 
-function bookInputToggle() {
-    const addToLibrary = document.querySelector('#bookInput');
-    const openBookInputBtn = document.querySelector('#openBookInputBtn');
+// function bookInputToggle() {
+//     const addToLibrary = document.querySelector('#bookInput');
+//     const openBookInputBtn = document.querySelector('#openBookInputBtn');
 
-    if (addToLibrary.style.display === 'none') {
-        addToLibrary.style.display = 'flex';
-        openBookInputBtn.classList.add('removeDisplay');
-    } else {
-        addToLibrary.style.display = 'none';
-        openBookInputBtn.classList.remove('removeDisplay');
-    }
-}
+//     if (addToLibrary.style.display === 'none') {
+//         addToLibrary.style.display = 'flex';
+//         openBookInputBtn.classList.add('removeDisplay');
+//     } else {
+//         addToLibrary.style.display = 'none';
+//         openBookInputBtn.classList.remove('removeDisplay');
+//     }
+// }
 
-function deleteIconEventListener() {
-    const deleteIcon = document.querySelectorAll('.la-trash');
+// function deleteIconEventListener() {
+//     const deleteIcon = document.querySelectorAll('.la-trash');
 
-    deleteIcon.forEach((icon) => {
-        icon.addEventListener('click', (e) => {
-            // deleteObjectInArray(myBooks.myLibrary, findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
-            // myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1)
-            deleteBook(e);
-        })
-    })
-}
+//     deleteIcon.forEach((icon) => {
+//         icon.addEventListener('click', (e) => {
+//             // deleteObjectInArray(myBooks.myLibrary, findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
+//             // myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1)
+//             deleteBook(e);
+//         })
+//     })
+// }
 
 // function deleteBookInputValues() {
 //     const authorForm = document.querySelector('#authorForm');
