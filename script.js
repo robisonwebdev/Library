@@ -183,8 +183,14 @@ const libraryDisplay = (function() {
     statusBtnsEventListener();
     deleteIconEventListener();
 
+    const cancelBtn = document.querySelector('#cancel');
     const openBookInputBtn = document.querySelector('#openBookInputBtn');
     const submitBtn = document.querySelector('#submit');
+
+    cancelBtn.addEventListener('click', () => {
+        addBookToggle();
+        deleteBookInputValues();
+    })
 
     openBookInputBtn.addEventListener('click', () => {
         addBookToggle();
@@ -375,26 +381,26 @@ function findObjectInArray(key, array) {
 
 
 // Eventlisteners 
-const openBookInputBtn = document.querySelector('#openBookInputBtn');
-const submitBtn = document.querySelector('#submit');
-const cancelBtn = document.querySelector('#cancel');
+// const openBookInputBtn = document.querySelector('#openBookInputBtn');
+// const submitBtn = document.querySelector('#submit');
+// const cancelBtn = document.querySelector('#cancel');
 
 
-openBookInputBtn.addEventListener('click', () => {
-    bookInputToggle();
-})
+// openBookInputBtn.addEventListener('click', () => {
+//     bookInputToggle();
+// })
 
-submitBtn.addEventListener('click', () => {
-    myBooks.add();
-    // updateLocalStorage();
-    bookInputToggle();
-    deleteBookInputValues();
-    displayBookList();
-    statusBtnsEventListener();
-    deleteIconEventListener();
-})
+// submitBtn.addEventListener('click', () => {
+//     myBooks.add();
+//     // updateLocalStorage();
+//     bookInputToggle();
+//     deleteBookInputValues();
+//     displayBookList();
+//     statusBtnsEventListener();
+//     deleteIconEventListener();
+// })
 
-cancelBtn.addEventListener('click', () => {
-    bookInputToggle();
-    deleteBookInputValues();
-})
+// cancelBtn.addEventListener('click', () => {
+//     bookInputToggle();
+//     deleteBookInputValues();
+// })
