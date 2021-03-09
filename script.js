@@ -51,10 +51,21 @@ const myBooks = (function() {
         myLibrary.splice(start, end);
     }
 
+    function changeBookStatus(btn, key) {
+        if (btn.textContent == 'Read') {
+            myLibrary[findObjectInArray(key, myLibrary)].status = 'Not Read'; 
+        } else if (btn.textContent == 'Reading') {
+            myLibrary[findObjectInArray(key, myLibrary)].status = 'Read';
+        } else if (btn.textContent == 'Not Read') {
+            myLibrary[findObjectInArray(key, myLibrary)].status = 'Reading';
+        }
+    }
+
     return {
         myLibrary: myLibrary,
         add: addToLibrary,
         delete: deleteFromLibrary,
+        changeStatus: changeBookStatus,
     }
 })();
 
