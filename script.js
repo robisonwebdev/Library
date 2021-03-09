@@ -58,6 +58,31 @@ const myBooks = (function() {
     }
 })();
 
+const libraryDisplay = (function() {
+    function addBookToggle() {
+        const addToLibrary = document.querySelector('#bookInput');
+        const openBookInputBtn = document.querySelector('#openBookInputBtn');
+    
+        if (addToLibrary.style.display === 'none') {
+            addToLibrary.style.display = 'flex';
+            openBookInputBtn.classList.add('removeDisplay');
+        } else {
+            addToLibrary.style.display = 'none';
+            openBookInputBtn.classList.remove('removeDisplay');
+        }
+    }
+
+    const openBookInputBtn = document.querySelector('#openBookInputBtn');
+
+    openBookInputBtn.addEventListener('click', () => {
+        addBookToggle();
+    })
+
+    return {
+
+    }
+})();
+
 function bookInputToggle() {
     const addToLibrary = document.querySelector('#bookInput');
     const openBookInputBtn = document.querySelector('#openBookInputBtn');
