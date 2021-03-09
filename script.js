@@ -178,6 +178,11 @@ const libraryDisplay = (function() {
         })
     }
 
+    // checkForLocalStorage();
+    displayBookList();
+    statusBtnsEventListener();
+    deleteIconEventListener();
+
     const openBookInputBtn = document.querySelector('#openBookInputBtn');
     const submitBtn = document.querySelector('#submit');
 
@@ -335,21 +340,21 @@ function findObjectInArray(key, array) {
 //     })
 // }
 
-function statusChange(btn, key) {
-    if (btn.textContent == 'Read') {
-        myBooks.myLibrary[findObjectInArray(key, myBooks.myLibrary)].status = 'Not Read'; 
-    } else if (btn.textContent == 'Reading') {
-        myBooks.myLibrary[findObjectInArray(key, myBooks.myLibrary)].status = 'Read';
-    } else if (btn.textContent == 'Not Read') {
-        myBooks.myLibrary[findObjectInArray(key, myBooks.myLibrary)].status = 'Reading';
-    }
-    myBooks.changeStatus(btn, key);
+// function statusChange(btn, key) {
+//     if (btn.textContent == 'Read') {
+//         myBooks.myLibrary[findObjectInArray(key, myBooks.myLibrary)].status = 'Not Read'; 
+//     } else if (btn.textContent == 'Reading') {
+//         myBooks.myLibrary[findObjectInArray(key, myBooks.myLibrary)].status = 'Read';
+//     } else if (btn.textContent == 'Not Read') {
+//         myBooks.myLibrary[findObjectInArray(key, myBooks.myLibrary)].status = 'Reading';
+//     }
+//     myBooks.changeStatus(btn, key);
 
-    // updateLocalStorage();
-    displayBookList();
-    statusBtnsEventListener();
-    deleteIconEventListener();
-}
+//     // updateLocalStorage();
+//     displayBookList();
+//     statusBtnsEventListener();
+//     deleteIconEventListener();
+// }
 
 // function checkForLocalStorage() {
 //     if (!localStorage.getItem('myLibraryStored')) {
@@ -363,10 +368,10 @@ function statusChange(btn, key) {
 //     localStorage.setItem('myLibraryStored', JSON.stringify(myLibrary));
 // }
 
-// checkForLocalStorage();
-displayBookList();
-statusBtnsEventListener();
-deleteIconEventListener();
+// // checkForLocalStorage();
+// displayBookList();
+// statusBtnsEventListener();
+// deleteIconEventListener();
 
 
 // Eventlisteners 
