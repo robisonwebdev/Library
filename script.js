@@ -72,7 +72,7 @@ const myBooks = (function() {
     return {
         myLibrary: myLibrary,
         add: addToLibrary,
-        delete: deleteFromLibrary,
+        deleteBook: deleteFromLibrary,
         changeStatus: changeBookStatus,
         locate: locateBook,
     }
@@ -102,7 +102,7 @@ const libraryDisplay = (function() {
     }
 
     function deleteBook(e) {
-        myBooks.delete(e.target.dataset.key, 1);
+        myBooks.deleteBook(e.target.dataset.key, 1);
     
         // updateLocalStorage();
         displayBookList();
@@ -231,107 +231,3 @@ const libraryDisplay = (function() {
 
     }
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function deleteBook(e) {
-//     myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
-
-//     // updateLocalStorage();
-//     displayBookList();
-//     statusBtnsEventListener();
-//     deleteIconEventListener();
-// }
-
-// function deleteObjectInArray(array, start, end) {
-//     array.splice(start, end);
-
-//     // updateLocalStorage();
-//     displayBookList();
-//     statusBtnsEventListener();
-//     deleteIconEventListener();
-// }
-
-
-
-// function statusChange(btn, key) {
-//     if (btn.textContent == 'Read') {
-//         myBooks.myLibrary[findObjectInArray(key, myBooks.myLibrary)].status = 'Not Read'; 
-//     } else if (btn.textContent == 'Reading') {
-//         myBooks.myLibrary[findObjectInArray(key, myBooks.myLibrary)].status = 'Read';
-//     } else if (btn.textContent == 'Not Read') {
-//         myBooks.myLibrary[findObjectInArray(key, myBooks.myLibrary)].status = 'Reading';
-//     }
-//     myBooks.changeStatus(btn, key);
-
-//     // updateLocalStorage();
-//     displayBookList();
-//     statusBtnsEventListener();
-//     deleteIconEventListener();
-// }
-
-// function checkForLocalStorage() {
-//     if (!localStorage.getItem('myLibraryStored')) {
-//         localStorage.setItem('myLibraryStored', JSON.stringify(myLibrary));
-//     } else {
-//         myLibrary = JSON.parse(localStorage.getItem('myLibraryStored'));
-//     }
-// }
-
-// function updateLocalStorage() {
-//     localStorage.setItem('myLibraryStored', JSON.stringify(myLibrary));
-// }
-
-// // checkForLocalStorage();
-// displayBookList();
-// statusBtnsEventListener();
-// deleteIconEventListener();
-
-
-// Eventlisteners 
-// const openBookInputBtn = document.querySelector('#openBookInputBtn');
-// const submitBtn = document.querySelector('#submit');
-// const cancelBtn = document.querySelector('#cancel');
-
-
-// openBookInputBtn.addEventListener('click', () => {
-//     bookInputToggle();
-// })
-
-// submitBtn.addEventListener('click', () => {
-//     myBooks.add();
-//     // updateLocalStorage();
-//     bookInputToggle();
-//     deleteBookInputValues();
-//     displayBookList();
-//     statusBtnsEventListener();
-//     deleteIconEventListener();
-// })
-
-// cancelBtn.addEventListener('click', () => {
-//     bookInputToggle();
-//     deleteBookInputValues();
-// })
