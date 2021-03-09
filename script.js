@@ -129,6 +129,16 @@ const libraryDisplay = (function() {
         })
     }
 
+    function statusBtnsEventListener() {
+        const statusBtns = document.querySelectorAll('.statusBtns')
+    
+        statusBtns.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                statusChange(btn, e.target.dataset.key);
+            })
+        })
+    }
+
     const openBookInputBtn = document.querySelector('#openBookInputBtn');
     const submitBtn = document.querySelector('#submit');
 
@@ -276,15 +286,15 @@ function findObjectInArray(key, array) {
     }
 }
 
-function statusBtnsEventListener() {
-    const statusBtns = document.querySelectorAll('.statusBtns')
+// function statusBtnsEventListener() {
+//     const statusBtns = document.querySelectorAll('.statusBtns')
 
-    statusBtns.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            statusChange(btn, e.target.dataset.key);
-        })
-    })
-}
+//     statusBtns.forEach((btn) => {
+//         btn.addEventListener('click', (e) => {
+//             statusChange(btn, e.target.dataset.key);
+//         })
+//     })
+// }
 
 function statusChange(btn, key) {
     if (btn.textContent == 'Read') {
