@@ -145,9 +145,18 @@ const libraryDisplay = (function() {
     
         statusBtns.forEach((btn) => {
             btn.addEventListener('click', (e) => {
-                statusChange(btn, e.target.dataset.key);
+                changeBookStatus(btn, e.target.dataset.key);
             })
         })
+    }
+
+    function changeBookStatus(btn, key) {
+        myBooks.changeStatus(btn, key);
+    
+        // updateLocalStorage();
+        displayBookList();
+        statusBtnsEventListener();
+        deleteIconEventListener();
     }
 
     const openBookInputBtn = document.querySelector('#openBookInputBtn');
@@ -315,6 +324,7 @@ function statusChange(btn, key) {
     } else if (btn.textContent == 'Not Read') {
         myBooks.myLibrary[findObjectInArray(key, myBooks.myLibrary)].status = 'Reading';
     }
+    myBooks.changeStatus(btn, key);
 
     // updateLocalStorage();
     displayBookList();
