@@ -73,9 +73,20 @@ const libraryDisplay = (function() {
     }
 
     const openBookInputBtn = document.querySelector('#openBookInputBtn');
+    const submitBtn = document.querySelector('#submit');
 
     openBookInputBtn.addEventListener('click', () => {
         addBookToggle();
+    })
+
+    submitBtn.addEventListener('click', () => {
+        myBooks.add();
+        // updateLocalStorage();
+        addBookToggle();
+        deleteBookInputValues();
+        displayBookList();
+        statusBtnsEventListener();
+        deleteIconEventListener();
     })
 
     return {
