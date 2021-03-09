@@ -76,7 +76,8 @@ function deleteIconEventListener() {
 
     deleteIcon.forEach((icon) => {
         icon.addEventListener('click', (e) => {
-            deleteObjectInArray(myBooks.myLibrary, findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
+            // deleteObjectInArray(myBooks.myLibrary, findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
+            myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1)
         })
     })
 }
