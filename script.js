@@ -198,7 +198,7 @@ const libraryDisplay = (function() {
 
     cancelBtn.addEventListener('click', () => {
         addBookToggle();
-        deleteBookInputValues();
+        deleteInputValues();
     })
 
     openBookInputBtn.addEventListener('click', () => {
