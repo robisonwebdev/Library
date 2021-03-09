@@ -77,7 +77,8 @@ function deleteIconEventListener() {
     deleteIcon.forEach((icon) => {
         icon.addEventListener('click', (e) => {
             // deleteObjectInArray(myBooks.myLibrary, findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
-            myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1)
+            // myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1)
+            deleteBook(e);
         })
     })
 }
@@ -100,14 +101,23 @@ function deleteBookList() {
     bookListTBody.innerHTML = '';
 }
 
-function deleteObjectInArray(array, start, end) {
-    array.splice(start, end);
+function deleteBook(e) {
+    myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
 
     // updateLocalStorage();
     displayBookList();
     statusBtnsEventListener();
     deleteIconEventListener();
 }
+
+// function deleteObjectInArray(array, start, end) {
+//     array.splice(start, end);
+
+//     // updateLocalStorage();
+//     displayBookList();
+//     statusBtnsEventListener();
+//     deleteIconEventListener();
+// }
 
 function displayBookList() {
     deleteBookList();
