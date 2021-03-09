@@ -168,6 +168,14 @@ const libraryDisplay = (function() {
         })
     }
 
+    function findObjectInArray(key, array) {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].dataKey == key) {
+                return i;
+            }
+        }
+    }
+
     function statusBtnsEventListener() {
         const statusBtns = document.querySelectorAll('.statusBtns')
     
@@ -328,13 +336,13 @@ const libraryDisplay = (function() {
 //     })
 // }
 
-function findObjectInArray(key, array) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i].dataKey == key) {
-            return i;
-        }
-    }
-}
+// function findObjectInArray(key, array) {
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i].dataKey == key) {
+//             return i;
+//         }
+//     }
+// }
 
 // function statusBtnsEventListener() {
 //     const statusBtns = document.querySelectorAll('.statusBtns')
