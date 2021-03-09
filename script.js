@@ -92,6 +92,15 @@ const libraryDisplay = (function() {
         deleteIconEventListener();
     }
 
+    function deleteBook(e) {
+        myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
+    
+        // updateLocalStorage();
+        displayBookList();
+        statusBtnsEventListener();
+        deleteIconEventListener();
+    }
+
     function deleteIconEventListener() {
         const deleteIcon = document.querySelectorAll('.la-trash');
     
@@ -251,14 +260,14 @@ const libraryDisplay = (function() {
 //     bookListTBody.innerHTML = '';
 // }
 
-function deleteBook(e) {
-    myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
+// function deleteBook(e) {
+//     myBooks.delete(findObjectInArray(e.target.dataset.key, myBooks.myLibrary), 1);
 
-    // updateLocalStorage();
-    displayBookList();
-    statusBtnsEventListener();
-    deleteIconEventListener();
-}
+//     // updateLocalStorage();
+//     displayBookList();
+//     statusBtnsEventListener();
+//     deleteIconEventListener();
+// }
 
 // function deleteObjectInArray(array, start, end) {
 //     array.splice(start, end);
