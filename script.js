@@ -83,12 +83,6 @@ const libraryDisplay = (function() {
         }
     }
 
-    function deleteLibraryListDisplay() {
-        const bookListTBody = document.querySelector('tbody');
-    
-        bookListTBody.innerHTML = '';
-    }
-
     function deleteIconEventListener() {
         const deleteIcon = document.querySelectorAll('.la-trash');
     
@@ -109,6 +103,12 @@ const libraryDisplay = (function() {
         titleForm.value = '';
         pagesForm.value = '';
         status.selectedIndex = 0;
+    }
+
+    function deleteLibraryListDisplay() {
+        const bookListTBody = document.querySelector('tbody');
+    
+        bookListTBody.innerHTML = '';
     }
 
     function displayBookList() {
