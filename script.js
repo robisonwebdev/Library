@@ -47,9 +47,14 @@ const myBooks = (function() {
 
     }
 
+    function deleteFromLibrary(start, end) {
+        myLibrary.splice(start, end);
+    }
+
     return {
         myLibrary: myLibrary,
         addToLibrary: addToLibrary,
+        delete: deleteFromLibrary,
     }
 })();
 
