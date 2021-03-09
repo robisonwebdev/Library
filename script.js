@@ -53,7 +53,7 @@ const myBooks = (function() {
 
     return {
         myLibrary: myLibrary,
-        addToLibrary: addToLibrary,
+        add: addToLibrary,
         delete: deleteFromLibrary,
     }
 })();
@@ -209,7 +209,7 @@ openBookInputBtn.addEventListener('click', () => {
 })
 
 submitBtn.addEventListener('click', () => {
-    myBooks.addToLibrary();
+    myBooks.add();
     // updateLocalStorage();
     bookInputToggle();
     deleteBookInputValues();
