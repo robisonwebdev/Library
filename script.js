@@ -1,233 +1,211 @@
-const myBooks = (function() {
-    // Array to store book objects
-    let myLibrary = [
-        {
-            author: 'David Ratrick',
-            title: 'Wind Hunter',
-            pages: '523',
-            status: 'Read',
-            dataKey: 'DavidRobison_523',
-        },
-        {
-            author: 'Patrick Rothfuss',
-            title: 'The Name of the Wind',
-            pages: '662',
-            status: 'Reading',
-            dataKey: 'PatrickRothfuss_662',
-        },
-        {
-            author: 'Robert Jordan',
-            title: 'The Great Hunt',
-            pages: '706',
-            status: 'Not Read',
-            dataKey: 'RobertJordan_706',
-        },
-    ];
+// Array to store book objects
+let myLibrary = [
+    {
+        author: 'David Robison',
+        title: 'Wind Hunter',
+        pages: '523',
+        status: 'Read',
+        dataKey: 'DavidRobison_523',
+    },
+    {
+        author: 'Patrick Rothfuss',
+        title: 'The Name of the Wind',
+        pages: '662',
+        status: 'Reading',
+        dataKey: 'PatrickRothfuss_662',
+    },
+    {
+        author: 'Robert Jordan',
+        title: 'The Great Hunt',
+        pages: '706',
+        status: 'Not Read',
+        dataKey: 'RobertJordan_706',
+    },
+];
 
-    class book {
-        constructor(author, title, pages, status, dataKey) {
-            this.author = author;
-            this.title = title;
-            this.pages = pages;
-            this.status = status;
-            this.dataKey = dataKey;
-        }
+class book {
+    constructor(author, title, pages, status, dataKey) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.status = status;
+        this.dataKey = dataKey;
     }
+}
 
-    function addToLibrary() {
-        const author = document.querySelector('#authorForm').value;
-        const title = document.querySelector('#titleForm').value;
-        const pages = document.querySelector('#pagesForm').value;
-        const status = document.querySelector('#status').value;
-        const dataKey = `${author.replace(/ /g, '')}_${pages}`;
+// Function that adds book to myLibrary Array
+function addBookToLibrary() {
+    const author = document.querySelector('#authorForm').value;
+    const title = document.querySelector('#titleForm').value;
+    const pages = document.querySelector('#pagesForm').value;
+    const status = document.querySelector('#status').value;
+    const dataKey = `${author.replace(/ /g, '')}_${pages}`;
 
-        const newBook = new book(author, title, pages, status, dataKey);
+    const newBook = new book(author, title, pages, status, dataKey);
 
-        myLibrary.push(newBook);
+    myLibrary.push(newBook);
+}
 
+function bookInputToggle() {
+    const addToLibrary = document.querySelector('#bookInput');
+    const openBookInputBtn = document.querySelector('#openBookInputBtn');
+
+    if (addToLibrary.style.display === 'none') {
+        addToLibrary.style.display = 'flex';
+        openBookInputBtn.classList.add('removeDisplay');
+    } else {
+        addToLibrary.style.display = 'none';
+        openBookInputBtn.classList.remove('removeDisplay');
     }
+}
 
-    function deleteFromLibrary(start, end) {
-        myLibrary.splice(start, end);
-    }
+function deleteIconEventListener() {
+    const deleteIcon = document.querySelectorAll('.la-trash');
 
-    function changeBookStatus(btn, key) {
-        if (btn.textContent == 'Read') {
-            myLibrary[locateBook(key, myLibrary)].status = 'Not Read'; 
-        } else if (btn.textContent == 'Reading') {
-            myLibrary[locateBook(key, myLibrary)].status = 'Read';
-        } else if (btn.textContent == 'Not Read') {
-            myLibrary[locateBook(key, myLibrary)].status = 'Reading';
-        }
-    }
-
-    function locateBook(key) {
-        for (let i = 0; i < myLibrary.length; i++) {
-            if (myLibrary[i].dataKey == key) {
-                return i;
-            }
-        }
-    }
-
-    return {
-        myLibrary: myLibrary,
-        add: addToLibrary,
-        deleteBook: deleteFromLibrary,
-        changeStatus: changeBookStatus,
-        locate: locateBook,
-    }
-})();
-
-const libraryDisplay = (function() {
-    function addBookToggle() {
-        const addToLibrary = document.querySelector('#bookInput');
-        const openBookInputBtn = document.querySelector('#openBookInputBtn');
-    
-        if (addToLibrary.style.display === 'none') {
-            addToLibrary.style.display = 'flex';
-            openBookInputBtn.classList.add('removeDisplay');
-        } else {
-            addToLibrary.style.display = 'none';
-            openBookInputBtn.classList.remove('removeDisplay');
-        }
-    }
-
-    function changeBookStatus(btn, key) {
-        myBooks.changeStatus(btn, key);
-    
-        // updateLocalStorage();
-        displayBookList();
-        statusBtnsEventListener();
-        deleteIconEventListener();
-    }
-
-    function deleteBook(e) {
-        myBooks.deleteBook(e.target.dataset.key, 1);
-    
-        // updateLocalStorage();
-        displayBookList();
-        statusBtnsEventListener();
-        deleteIconEventListener();
-    }
-
-    function deleteIconEventListener() {
-        const deleteIcon = document.querySelectorAll('.la-trash');
-    
-        deleteIcon.forEach((icon) => {
-            icon.addEventListener('click', (e) => {
-                deleteBook(e);
-            })
+    deleteIcon.forEach((icon) => {
+        icon.addEventListener('click', (e) => {
+            deleteObjectInArray(myLibrary, findObjectInArray(e.target.dataset.key, myLibrary), 1);
         })
-    }
+    })
+}
 
-    function deleteInputValues() {
-        const authorForm = document.querySelector('#authorForm');
-        const titleForm = document.querySelector('#titleForm');
-        const pagesForm = document.querySelector('#pagesForm');
-        const status = document.querySelector('#status');
-    
-        authorForm.value = '';
-        titleForm.value = '';
-        pagesForm.value = '';
-        status.selectedIndex = 0;
-    }
+function deleteBookInputValues() {
+    const authorForm = document.querySelector('#authorForm');
+    const titleForm = document.querySelector('#titleForm');
+    const pagesForm = document.querySelector('#pagesForm');
+    const status = document.querySelector('#status');
 
-    function deleteLibraryListDisplay() {
-        const bookListTBody = document.querySelector('tbody');
-    
-        bookListTBody.innerHTML = '';
-    }
+    authorForm.value = '';
+    titleForm.value = '';
+    pagesForm.value = '';
+    status.selectedIndex = 0;
+}
 
-    function displayBookList() {
-        deleteLibraryListDisplay();
-    
-        myBooks.myLibrary.forEach((book) => {
-            const bookListTBody = document.querySelector('tbody');
-            const bookListTR = document.createElement('tr');
-            const titleTD = document.createElement('td');
-            const authorTD = document.createElement('td');
-            const pagesTD = document.createElement('td');
-            const statusTD = document.createElement('td');
-            const statusBtn = document.createElement('button');
-            const deleteTD = document.createElement('td');
-            const deleteBtn = document.createElement('i');
-    
-            bookListTR;
-            titleTD.innerText = book.title;
-            authorTD.innerText = book.author;
-            pagesTD.innerText = book.pages;
-            pagesTD.classList.add('centerAlign');
-            statusTD.classList.add('centerAlign');
-            statusBtn.setAttribute('type', 'button');
-            statusBtn.setAttribute('class', 'statusBtns');
-            statusBtn.setAttribute('data-key', book.dataKey)
-            statusBtn.innerText = book.status;
-            deleteTD.classList.add('centerAlign');
-            deleteBtn.setAttribute('class', 'las la-trash');
-            deleteBtn.setAttribute('data-key', book.dataKey);
-    
-            statusTD.appendChild(statusBtn);
-            deleteTD.appendChild(deleteBtn);
-            bookListTR.appendChild(titleTD);
-            bookListTR.appendChild(authorTD);
-            bookListTR.appendChild(pagesTD);
-            bookListTR.appendChild(statusTD);
-            bookListTR.appendChild(deleteTD);
-            bookListTBody.appendChild(bookListTR);
-        })
-    }
+function deleteBookList() {
+    const bookListTBody = document.querySelector('tbody');
 
-    function statusBtnsEventListener() {
-        const statusBtns = document.querySelectorAll('.statusBtns')
-    
-        statusBtns.forEach((btn) => {
-            btn.addEventListener('click', (e) => {
-                changeBookStatus(btn, e.target.dataset.key);
-            })
-        })
-    }
+    bookListTBody.innerHTML = '';
+}
 
-    // function checkForLocalStorage() {
-    //     if (!localStorage.getItem('myLibraryStored')) {
-    //         localStorage.setItem('myLibraryStored', JSON.stringify(myBooks.myLibrary));
-    //     } else {
-    //         myBooks.myLibrary = JSON.parse(localStorage.getItem('myLibraryStored'));
-    //     }
-    // }
-    
-    // function updateLocalStorage() {
-    //     localStorage.setItem('myLibraryStored', JSON.stringify(myBooks.myLibrary));
-    // }
+function deleteObjectInArray(array, start, end) {
+    array.splice(start, end);
 
-    // checkForLocalStorage();
+    updateLocalStorage();
     displayBookList();
     statusBtnsEventListener();
     deleteIconEventListener();
+}
 
-    const cancelBtn = document.querySelector('#cancel');
-    const openBookInputBtn = document.querySelector('#openBookInputBtn');
-    const submitBtn = document.querySelector('#submit');
+function displayBookList() {
+    deleteBookList();
 
-    cancelBtn.addEventListener('click', () => {
-        addBookToggle();
-        deleteInputValues();
+    myLibrary.forEach((book) => {
+        const bookListTBody = document.querySelector('tbody');
+        const bookListTR = document.createElement('tr');
+        const titleTD = document.createElement('td');
+        const authorTD = document.createElement('td');
+        const pagesTD = document.createElement('td');
+        const statusTD = document.createElement('td');
+        const statusBtn = document.createElement('button');
+        const deleteTD = document.createElement('td');
+        const deleteBtn = document.createElement('i');
+
+        bookListTR;
+        titleTD.innerText = book.title;
+        authorTD.innerText = book.author;
+        pagesTD.innerText = book.pages;
+        pagesTD.classList.add('centerAlign');
+        statusTD.classList.add('centerAlign');
+        statusBtn.setAttribute('type', 'button');
+        statusBtn.setAttribute('class', 'statusBtns');
+        statusBtn.setAttribute('data-key', book.dataKey)
+        statusBtn.innerText = book.status;
+        deleteTD.classList.add('centerAlign');
+        deleteBtn.setAttribute('class', 'las la-trash');
+        deleteBtn.setAttribute('data-key', book.dataKey);
+
+        statusTD.appendChild(statusBtn);
+        deleteTD.appendChild(deleteBtn);
+        bookListTR.appendChild(titleTD);
+        bookListTR.appendChild(authorTD);
+        bookListTR.appendChild(pagesTD);
+        bookListTR.appendChild(statusTD);
+        bookListTR.appendChild(deleteTD);
+        bookListTBody.appendChild(bookListTR);
     })
+}
 
-    openBookInputBtn.addEventListener('click', () => {
-        addBookToggle();
-    })
-
-    submitBtn.addEventListener('click', () => {
-        myBooks.add();
-        // updateLocalStorage();
-        addBookToggle();
-        deleteInputValues();
-        displayBookList();
-        statusBtnsEventListener();
-        deleteIconEventListener();
-    })
-
-    return {
-
+function findObjectInArray(key, array) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].dataKey == key) {
+            return i;
+        }
     }
-})();
+}
+
+function statusBtnsEventListener() {
+    const statusBtns = document.querySelectorAll('.statusBtns')
+
+    statusBtns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            statusChange(btn, e.target.dataset.key);
+        })
+    })
+}
+
+function statusChange(btn, key) {
+    if (btn.textContent == 'Read') {
+        myLibrary[findObjectInArray(key, myLibrary)].status = 'Not Read'; 
+    } else if (btn.textContent == 'Reading') {
+        myLibrary[findObjectInArray(key, myLibrary)].status = 'Read';
+    } else if (btn.textContent == 'Not Read') {
+        myLibrary[findObjectInArray(key, myLibrary)].status = 'Reading';
+    }
+
+    updateLocalStorage();
+    displayBookList();
+    statusBtnsEventListener();
+    deleteIconEventListener();
+}
+
+function checkForLocalStorage() {
+    if (!localStorage.getItem('myLibraryStored')) {
+        localStorage.setItem('myLibraryStored', JSON.stringify(myLibrary));
+    } else {
+        myLibrary = JSON.parse(localStorage.getItem('myLibraryStored'));
+    }
+}
+
+function updateLocalStorage() {
+    localStorage.setItem('myLibraryStored', JSON.stringify(myLibrary));
+}
+
+checkForLocalStorage();
+displayBookList();
+statusBtnsEventListener();
+deleteIconEventListener();
+
+
+// Eventlisteners 
+const openBookInputBtn = document.querySelector('#openBookInputBtn');
+const submitBtn = document.querySelector('#submit');
+const cancelBtn = document.querySelector('#cancel');
+
+
+openBookInputBtn.addEventListener('click', () => {
+    bookInputToggle();
+})
+
+submitBtn.addEventListener('click', () => {
+    addBookToLibrary();
+    updateLocalStorage();
+    bookInputToggle();
+    deleteBookInputValues();
+    displayBookList();
+    statusBtnsEventListener();
+})
+
+cancelBtn.addEventListener('click', () => {
+    bookInputToggle();
+    deleteBookInputValues();
+})
