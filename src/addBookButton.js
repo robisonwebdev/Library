@@ -4,6 +4,7 @@ function addBookButton() {
 
     div.setAttribute('id', 'addBookDiv');
     button.setAttribute('id', 'addBookButton');
+    button.setAttribute('class', 'libraryFormButtons');
     button.setAttribute('type', 'button');
 
     button.innerText = 'Add Book';
