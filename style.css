@@ -150,7 +150,7 @@ td{
     width: auto;
 }
 
-.libraryFormButtons:hover {
+.bookFormButtons:hover {
     background-color: var(--greyDark);
     text-decoration: underline;
 }
