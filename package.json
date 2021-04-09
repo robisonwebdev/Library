@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/robisonwebdev/Library/issues"
   },
-  "homepage": "https://github.com/robisonwebdev/Library#readme"
+  "homepage": "https://github.com/robisonwebdev/Library#readme",
+  "devDependencies": {
+    "webpack": "^5.31.2",
+    "webpack-cli": "^4.6.0"
+  }
 }
