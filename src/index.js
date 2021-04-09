@@ -1,7 +1,7 @@
+import container from "./container";
 import footer from "./footer";
-import header from "./header";
 
-const content = document.querySelector('#content');
+const body = document.querySelector('body');
 
-content.appendChild(header('Library'));
-content.appendChild(footer('https://github.com/robisonwebdev', 'David Robison'));
+body.appendChild(container());
+body.appendChild(footer('https://github.com/robisonwebdev', 'David Robison'));
