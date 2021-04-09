@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --white: #f6f5f5;
+    --grey: #aaaaaa;
+    --greyDark: #5b5b5b;
+}
+
+.removeDisplay {
+    display: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--white);
+    height: 100vh;
+    width: 100vw;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+
+    height: 100%;
+    width: 100%;
+}
+
+#header {
+    margin: 30px auto;
+}
+
+#libraryTitle {
+    font-size: 3rem;
+}
+
+#bookListContainer {
+    width: 760px;    
+}
+
+#bookListTable {
+    border-spacing: 0;
+    width: 100%;
+}
+
+th {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.centerAlign {
+    text-align: center;
+}
+
+td{
+    border-bottom: 1px solid var(--grey);
+    padding: 20px 0;
+}
+
+.las {
+    font-size: 22px;
+}
+
+.statusBtns {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 35px;
+    width: 80px;
+}
+
+.statusBtns:hover {
+    background-color: var(--grey);
+    color: var(--white);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+#addBook {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    height: 100%;
+    width: 100%;
+}
+
+#openBookInputBtn {
+    box-shadow: 6px 7px 14px -5px rgba(0,0,0,0.75);
+    font-size: 14px;
+    margin-right: 15px;    
+}
+
+#openBookInputBtn:hover {
+    box-shadow: 6px 7px 14px -2px rgba(0,0,0,0.75);
+}
+
+#bookInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 6px 7px 14px -2px rgba(0,0,0,0.75);
+    height: auto;
+    margin-right: 15px;
+    width: auto;
+}
+
+#libraryForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    
+    margin: 20px;
+}
+
+.libraryFormInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#formStatus {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.libraryFormBtns {
+    background-color: var(--grey);
+    border: 1px solid black;
+    border-radius: 3px;
+    color: var(--white);
+    margin: 0 5px;
+    padding: 10px 20px;
+
+    height: auto;
+    width: auto;
+}
+
+.libraryFormBtns:hover {
+    background-color: var(--greyDark);
+    text-decoration: underline;
+}
+
+a {
+    color: var(--greyDark);
+}
+
+a:hover {
+    color: black;
+}
+@media only screen and (max-width: 800px) {
+    #bookListContainer {
+        width: 95vw;
+    }
+}
