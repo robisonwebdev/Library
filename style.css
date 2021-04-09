@@ -42,10 +42,6 @@ body {
     font-size: 3rem;
 }
 
-#container {
-    width: 760px;    
-}
-
 #bookListTable {
     border-spacing: 0;
     width: 100%;
@@ -93,13 +89,13 @@ td{
     width: 100%;
 }
 
-#openBookInputBtn {
+#addBookButton {
     box-shadow: 6px 7px 14px -5px rgba(0,0,0,0.75);
     font-size: 14px;
     margin-right: 15px;    
 }
 
-#openBookInputBtn:hover {
+#addBookButton:hover {
     box-shadow: 6px 7px 14px -2px rgba(0,0,0,0.75);
 }
 
@@ -142,7 +138,7 @@ td{
     width: 100%;
 }
 
-.libraryFormBtns {
+.libraryFormButtons {
     background-color: var(--grey);
     border: 1px solid black;
     border-radius: 3px;
@@ -154,7 +150,7 @@ td{
     width: auto;
 }
 
-.libraryFormBtns:hover {
+.libraryFormButtons:hover {
     background-color: var(--greyDark);
     text-decoration: underline;
 }
