@@ -84,7 +84,7 @@ td{
     text-decoration: underline;
 }
 
-#addBook {
+#addBookDiv {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
