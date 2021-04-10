@@ -1,3 +1,4 @@
+import addBookButtonEventListener from './eventListeners/addBookButtonEventListener';
 import bookForm from "./bookForm";
 
 function addBookButton() {
@@ -10,6 +11,8 @@ function addBookButton() {
     button.setAttribute('type', 'button');
 
     button.innerText = 'Add Book';
+
+    addBookButtonEventListener(button);
 
     div.appendChild(button);
     div.appendChild(bookForm());
