@@ -1,3 +1,4 @@
+import statusButtonsEventListener from './eventListeners/statusButtonsEventListener';
 import myLibrary from './myLibrary';
 
 function displayBooks() {
@@ -27,6 +28,8 @@ function displayBooks() {
         deleteTD.classList.add('centerAlign');
         deleteBtn.setAttribute('class', 'las la-trash');
         deleteBtn.setAttribute('data-key', book.dataKey);
+
+        statusButtonsEventListener(statusBtn);
 
         statusTD.appendChild(statusBtn);
         deleteTD.appendChild(deleteBtn);
