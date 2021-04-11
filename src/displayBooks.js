@@ -1,3 +1,4 @@
+import deleteButtonEventListener from './eventListeners/deleteButtonEventListener';
 import statusButtonsEventListener from './eventListeners/statusButtonsEventListener';
 import myLibrary from './myLibrary';
 
@@ -30,6 +31,7 @@ function displayBooks() {
         deleteBtn.setAttribute('data-key', book.dataKey);
 
         statusButtonsEventListener(statusBtn);
+        deleteButtonEventListener(deleteBtn);
 
         statusTD.appendChild(statusBtn);
         deleteTD.appendChild(deleteBtn);
