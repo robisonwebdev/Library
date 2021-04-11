@@ -9,11 +9,6 @@ function statusChange(btn, key) {
     } else if (btn.textContent == 'Not Read') {
         myLibrary[findObjectInArray(key, myLibrary)].status = 'Reading';
     }
-
-    // updateLocalStorage();
-    // displayBookList();
-    // statusBtnsEventListener();
-    // deleteIconEventListener();
 }
 
 export default statusChange;
