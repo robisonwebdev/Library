@@ -42,6 +42,10 @@ body {
     font-size: 3rem;
 }
 
+#bookListContainer {
+    width: 760px;
+}
+
 #bookListTable {
     border-spacing: 0;
     width: 100%;
