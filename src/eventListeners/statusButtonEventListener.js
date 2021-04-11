@@ -1,6 +1,6 @@
 import statusChange from '../statusChange';
 
-function statusBtnsEventListener() {
+function statusButtonsEventListener() {
     const statusBtns = document.querySelectorAll('.statusBtns')
 
     statusBtns.forEach((btn) => {
@@ -10,4 +10,4 @@ function statusBtnsEventListener() {
     })
 }
 
-export default statusBtnsEventListener;
+export default statusButtonsEventListener;
