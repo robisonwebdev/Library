@@ -70,6 +70,10 @@ td{
     font-size: 22px;
 }
 
+.la-trash:hover {
+    color: red;
+}
+
 .statusBtns {
     border: 1px solid black;
     border-radius: 5px;
