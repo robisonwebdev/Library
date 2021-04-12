@@ -16,7 +16,6 @@ function displayBooks() {
         const deleteTD = document.createElement('td');
         const deleteBtn = document.createElement('i');
 
-        bookListTR;
         titleTD.innerText = book.title;
         authorTD.innerText = book.author;
         pagesTD.innerText = book.pages;
