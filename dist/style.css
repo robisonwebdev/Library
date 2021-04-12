@@ -67,6 +67,7 @@ td{
 }
 
 .las {
+    cursor: pointer;
     font-size: 22px;
 }
 
@@ -75,6 +76,7 @@ td{
 }
 
 .statusBtns {
+    cursor: pointer;
     border: 1px solid black;
     border-radius: 5px;
     height: 35px;
@@ -147,6 +149,7 @@ td{
 }
 
 .bookFormButtons {
+    cursor: pointer;
     background-color: var(--grey);
     border: 1px solid black;
     border-radius: 3px;
