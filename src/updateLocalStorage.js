@@ -4,4 +4,4 @@ function updateLocalStorage() {
     localStorage.setItem('myLibraryStored', JSON.stringify(myLibrary));
 }
 
-export updateLocalStorage;
+export default updateLocalStorage;
