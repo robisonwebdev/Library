@@ -4,6 +4,10 @@
 Create a library that will store user book's in an array object, and store the array in localStorage. The user should be able 
 to enter new books, update the read status, and delete books. All changes should save/update localStorage.
 
+## 04/13/2021
+Updated code to use webpack. Moved every function from old script.js into its own file. Had to takeout local
+Storage, since I couldn't get it to work with webpack. 
+
 ## 03/25/2021
 Version one of project is up and working.
 
